@@ -1,3 +1,5 @@
+package vff.retailer;
+
 import java.awt.EventQueue;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -11,6 +13,7 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.util.Rotation;
 import org.jfree.data.xy.XYSeries;
+
 
 import com.sun.medialib.mlib.Image;
 

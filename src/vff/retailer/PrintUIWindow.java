@@ -1,3 +1,4 @@
+package vff.retailer;
 
 import java.awt.*;
 import java.awt.event.*;

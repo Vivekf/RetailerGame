@@ -220,6 +220,9 @@ public class Retailer extends JPanel implements ActionListener{
         ChartPanel chartPanel = new ChartPanel( chart );
         chartPanel.setForeground(new Color(245, 245, 245));
         chartPanel.setBackground(new Color(245, 245, 245));
+        chartPanel.setInheritsPopupMenu(false);
+        chartPanel.setPopupMenu(null);
+        
         panel_1.add( chartPanel );
         
         	btnRestart = new JButton("Restart");

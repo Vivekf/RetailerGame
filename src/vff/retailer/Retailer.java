@@ -86,6 +86,7 @@ public class Retailer extends JPanel implements ActionListener{
 	public Boolean seedMode=false;
 	public double seedEntered;
 	private JLabel lblSloanLogo;
+	private JMenuItem mntmExportToExcel;
 	
 	
 
@@ -211,6 +212,11 @@ public class Retailer extends JPanel implements ActionListener{
 		
 		mntmAbout = new JMenuItem("About");
 		mntmAbout.addActionListener(this);
+		
+		mntmExportToExcel = new JMenuItem("Export To Excel");
+		mntmExportToExcel.addActionListener(this);
+		
+		mnSeed.add(mntmExportToExcel);
 		mnSeed.add(mntmAbout);
 		
 		// Add The Chart
@@ -222,6 +228,8 @@ public class Retailer extends JPanel implements ActionListener{
         chartPanel.setBackground(new Color(245, 245, 245));
         chartPanel.setInheritsPopupMenu(false);
         chartPanel.setPopupMenu(null);
+        chartPanel.setDomainZoomable(false);
+        chartPanel.setRangeZoomable(false);
         
         panel_1.add( chartPanel );
         
@@ -305,6 +313,18 @@ public class Retailer extends JPanel implements ActionListener{
 			}
 
 		}
+		else if(arg0.getSource() == mntmExportToExcel){
+			try {
+                ExcelExporter exp = new ExcelExporter();
+                File f = new File("RetailerSeasonData.xls");
+                exp.fillData(table_1, f);
+                JOptionPane.showMessageDialog(null, "Data saved successfully at \n" + f.getAbsolutePath(), "Message",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+		}
+		
 		else if(arg0.getSource() == mntmAbout){
 			JOptionPane.showMessageDialog(frame, "Sloan Retailer V.0.1 by V. F. Farias, 07.2012"+'\n'+"Original Idea: Mark Broadie and Dev Joneja");	
 		}

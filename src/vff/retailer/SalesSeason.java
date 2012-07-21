@@ -11,7 +11,7 @@ public class SalesSeason {
 	public int no_weeks;
 	public int no_prices;
 	private double scale;
-	private double[] price;
+	private int[] price;
 	
 	//state variables
 	public int capacity;
@@ -19,7 +19,7 @@ public class SalesSeason {
 	private int price_level;
 	private int current_week;
 	private int current_demand;
-	private double revenue;
+	private int revenue;
 	
 	//state trajectory
 	public Vector inventory_path;
@@ -50,7 +50,7 @@ public class SalesSeason {
 			lift[2]=1.7;
 			lift[3]=2.8;
 		
-		price = new double[no_prices];
+		price = new int[no_prices];
 			//Tailored Settings
 			price[0]=100;
 			price[1]=90;
@@ -173,11 +173,11 @@ public class SalesSeason {
 		}
 	}
 	
-	public double getRevenue(){
+	public int getRevenue(){
 		return revenue;
 	}
 	
-	public double getPriceLevel(){
+	public int getPriceLevel(){
 		return price[price_level-1];
 	}
 	
